@@ -1,0 +1,6 @@
+<launch>
+    <node pkg="my_planner" type="mppi_node.py" name="my_mppi_planner" output="screen">
+        </node>
+
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find my_planner)/rviz/mppi_view.rviz" />
+</launch>

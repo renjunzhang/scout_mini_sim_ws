@@ -1,0 +1,52 @@
+<launch>
+
+    <include file="$(find scout_description)/launch/empty_world.launch">
+        <arg name="paused" value="false"/>
+        <arg name="use_sim_time" value="true"/>
+        <arg name="gui" value="true"/>
+        <arg name="headless" value="false"/>
+        <arg name="debug" value="false"/>
+    </include>
+
+    <param name="robot_description" command="$(find xacro)/xacro '$(find scout_description)/urdf/scout_mini.urdf.xacro'" />
+
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+
+    <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+          args="-urdf -model scout_mini -param robot_description -x 0 -y 0 -z 0.2" />
+
+    <rosparam param="/gazebo_ros_control/pid_gains">
+      front_left_wheel:
+        p: 1.0
+        i: 0.0
+        d: 0.0
+      front_right_wheel:
+        p: 1.0
+        i: 0.0
+        d: 0.0
+      rear_left_wheel:
+        p: 1.0
+        i: 0.0
+        d: 0.0
+      rear_right_wheel:
+        p: 1.0
+        i: 0.0
+        d: 0.0
+    </rosparam>
+
+    <rosparam>
+        joint_state_controller:
+            type: joint_state_controller/JointStateController
+            publish_rate: 50
+    </rosparam>
+
+    <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen"
+          args="joint_state_controller" />
+
+    <!-- Static TF: map to odom -->
+    <node pkg="tf" type="static_transform_publisher" name="map_to_odom_tf"
+          args="0 0 0 0 0 0 map odom 100" />
+
+    
+
+</launch>
