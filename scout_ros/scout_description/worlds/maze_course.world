@@ -11,19 +11,19 @@
     <!-- Boundary walls (12m x 12m area) -->
     <model name="wall_north">
       <static>true</static>
-      <pose>0 6 0.2 0 0 0</pose>
+      <pose>0 6 0.75 0 0 0</pose>
       <link name="link">
         <collision name="collision">
           <geometry>
             <box>
-              <size>12 0.1 0.4</size>
+              <size>12 0.1 1.5</size>
             </box>
           </geometry>
         </collision>
         <visual name="visual">
           <geometry>
             <box>
-              <size>12 0.1 0.4</size>
+              <size>12 0.1 1.5</size>
             </box>
           </geometry>
           <material>
@@ -36,19 +36,19 @@
 
     <model name="wall_south">
       <static>true</static>
-      <pose>0 -6 0.2 0 0 0</pose>
+      <pose>0 -6 0.75 0 0 0</pose>
       <link name="link">
         <collision name="collision">
           <geometry>
             <box>
-              <size>12 0.1 0.4</size>
+              <size>12 0.1 1.5</size>
             </box>
           </geometry>
         </collision>
         <visual name="visual">
           <geometry>
             <box>
-              <size>12 0.1 0.4</size>
+              <size>12 0.1 1.5</size>
             </box>
           </geometry>
           <material>
@@ -61,19 +61,19 @@
 
     <model name="wall_east">
       <static>true</static>
-      <pose>6 0 0.2 0 0 0</pose>
+      <pose>6 0 0.75 0 0 0</pose>
       <link name="link">
         <collision name="collision">
           <geometry>
             <box>
-              <size>0.1 12 0.4</size>
+              <size>0.1 12 1.5</size>
             </box>
           </geometry>
         </collision>
         <visual name="visual">
           <geometry>
             <box>
-              <size>0.1 12 0.4</size>
+              <size>0.1 12 1.5</size>
             </box>
           </geometry>
           <material>
@@ -86,19 +86,19 @@
 
     <model name="wall_west">
       <static>true</static>
-      <pose>-6 0 0.2 0 0 0</pose>
+      <pose>-6 0 0.75 0 0 0</pose>
       <link name="link">
         <collision name="collision">
           <geometry>
             <box>
-              <size>0.1 12 0.4</size>
+              <size>0.1 12 1.5</size>
             </box>
           </geometry>
         </collision>
         <visual name="visual">
           <geometry>
             <box>
-              <size>0.1 12 0.4</size>
+              <size>0.1 12 1.5</size>
             </box>
           </geometry>
           <material>
@@ -112,19 +112,19 @@
     <!-- Maze walls (long corridors with turns) -->
     <model name="maze_wall_1">
       <static>true</static>
-      <pose>0 2.5 0.2 0 0 0</pose>
+      <pose>0 2.5 0.75 0 0 0</pose>
       <link name="link">
         <collision name="collision">
           <geometry>
             <box>
-              <size>8.0 0.2 0.4</size>
+              <size>8.0 0.2 1.5</size>
             </box>
           </geometry>
         </collision>
         <visual name="visual">
           <geometry>
             <box>
-              <size>8.0 0.2 0.4</size>
+              <size>8.0 0.2 1.5</size>
             </box>
           </geometry>
         </visual>
@@ -133,19 +133,19 @@
 
     <model name="maze_wall_2">
       <static>true</static>
-      <pose>-1.5 -1.0 0.2 0 0 0</pose>
+      <pose>-1.5 -1.0 0.75 0 0 0</pose>
       <link name="link">
         <collision name="collision">
           <geometry>
             <box>
-              <size>6.0 0.2 0.4</size>
+              <size>6.0 0.2 1.5</size>
             </box>
           </geometry>
         </collision>
         <visual name="visual">
           <geometry>
             <box>
-              <size>6.0 0.2 0.4</size>
+              <size>6.0 0.2 1.5</size>
             </box>
           </geometry>
         </visual>
@@ -154,19 +154,19 @@
 
     <model name="maze_wall_3">
       <static>true</static>
-      <pose>2.0 -3.5 0.2 0 0 0</pose>
+      <pose>2.0 -3.5 0.75 0 0 0</pose>
       <link name="link">
         <collision name="collision">
           <geometry>
             <box>
-              <size>6.0 0.2 0.4</size>
+              <size>6.0 0.2 1.5</size>
             </box>
           </geometry>
         </collision>
         <visual name="visual">
           <geometry>
             <box>
-              <size>6.0 0.2 0.4</size>
+              <size>6.0 0.2 1.5</size>
             </box>
           </geometry>
         </visual>
@@ -175,19 +175,19 @@
 
     <model name="maze_wall_4">
       <static>true</static>
-      <pose>-3.0 0.75 0.2 0 0 1.57079632679</pose>
+      <pose>-3.0 0.75 0.75 0 0 1.57079632679</pose>
       <link name="link">
         <collision name="collision">
           <geometry>
             <box>
-              <size>5.0 0.2 0.4</size>
+              <size>5.0 0.2 1.5</size>
             </box>
           </geometry>
         </collision>
         <visual name="visual">
           <geometry>
             <box>
-              <size>5.0 0.2 0.4</size>
+              <size>5.0 0.2 1.5</size>
             </box>
           </geometry>
         </visual>
@@ -196,19 +196,19 @@
 
     <model name="maze_wall_5">
       <static>true</static>
-      <pose>3.5 1.0 0.2 0 0 1.57079632679</pose>
+      <pose>3.5 1.0 0.75 0 0 1.57079632679</pose>
       <link name="link">
         <collision name="collision">
           <geometry>
             <box>
-              <size>5.5 0.2 0.4</size>
+              <size>5.5 0.2 1.5</size>
             </box>
           </geometry>
         </collision>
         <visual name="visual">
           <geometry>
             <box>
-              <size>5.5 0.2 0.4</size>
+              <size>5.5 0.2 1.5</size>
             </box>
           </geometry>
         </visual>
@@ -217,19 +217,19 @@
 
     <model name="maze_wall_6">
       <static>true</static>
-      <pose>0.5 -2.0 0.2 0 0 1.57079632679</pose>
+      <pose>0.5 -2.0 0.75 0 0 1.57079632679</pose>
       <link name="link">
         <collision name="collision">
           <geometry>
             <box>
-              <size>4.0 0.2 0.4</size>
+              <size>4.0 0.2 1.5</size>
             </box>
           </geometry>
         </collision>
         <visual name="visual">
           <geometry>
             <box>
-              <size>4.0 0.2 0.4</size>
+              <size>4.0 0.2 1.5</size>
             </box>
           </geometry>
         </visual>
@@ -239,19 +239,19 @@
     <!-- Small obstacles in corridors -->
     <model name="maze_box_1">
       <static>true</static>
-      <pose>-2.2 3.5 0.2 0 0 0</pose>
+      <pose>-2.2 3.5 0.75 0 0 0</pose>
       <link name="link">
         <collision name="collision">
           <geometry>
             <box>
-              <size>0.5 0.5 0.4</size>
+              <size>0.5 0.5 1.5</size>
             </box>
           </geometry>
         </collision>
         <visual name="visual">
           <geometry>
             <box>
-              <size>0.5 0.5 0.4</size>
+              <size>0.5 0.5 1.5</size>
             </box>
           </geometry>
         </visual>
@@ -260,19 +260,19 @@
 
     <model name="maze_box_2">
       <static>true</static>
-      <pose>4.5 -0.5 0.2 0 0 0</pose>
+      <pose>4.5 -0.5 0.75 0 0 0</pose>
       <link name="link">
         <collision name="collision">
           <geometry>
             <box>
-              <size>0.4 0.8 0.4</size>
+              <size>0.4 0.8 1.5</size>
             </box>
           </geometry>
         </collision>
         <visual name="visual">
           <geometry>
             <box>
-              <size>0.4 0.8 0.4</size>
+              <size>0.4 0.8 1.5</size>
             </box>
           </geometry>
         </visual>
@@ -281,13 +281,13 @@
 
     <model name="maze_cylinder_1">
       <static>true</static>
-      <pose>-4.2 -4.0 0.2 0 0 0</pose>
+      <pose>-4.2 -4.0 0.75 0 0 0</pose>
       <link name="link">
         <collision name="collision">
           <geometry>
             <cylinder>
               <radius>0.25</radius>
-              <length>0.4</length>
+              <length>1.5</length>
             </cylinder>
           </geometry>
         </collision>
@@ -295,7 +295,7 @@
           <geometry>
             <cylinder>
               <radius>0.25</radius>
-              <length>0.4</length>
+              <length>1.5</length>
             </cylinder>
           </geometry>
         </visual>

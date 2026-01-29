@@ -11,19 +11,19 @@
     <!-- Boundary walls (10m x 10m area) -->
     <model name="wall_north">
       <static>true</static>
-      <pose>0 5 0.2 0 0 0</pose>
+      <pose>0 5 0.75 0 0 0</pose>
       <link name="link">
         <collision name="collision">
           <geometry>
             <box>
-              <size>10 0.1 0.4</size>
+              <size>10 0.1 1.5</size>
             </box>
           </geometry>
         </collision>
         <visual name="visual">
           <geometry>
             <box>
-              <size>10 0.1 0.4</size>
+              <size>10 0.1 1.5</size>
             </box>
           </geometry>
           <material>
@@ -36,19 +36,19 @@
 
     <model name="wall_south">
       <static>true</static>
-      <pose>0 -5 0.2 0 0 0</pose>
+      <pose>0 -5 0.75 0 0 0</pose>
       <link name="link">
         <collision name="collision">
           <geometry>
             <box>
-              <size>10 0.1 0.4</size>
+              <size>10 0.1 1.5</size>
             </box>
           </geometry>
         </collision>
         <visual name="visual">
           <geometry>
             <box>
-              <size>10 0.1 0.4</size>
+              <size>10 0.1 1.5</size>
             </box>
           </geometry>
           <material>
@@ -61,19 +61,19 @@
 
     <model name="wall_east">
       <static>true</static>
-      <pose>5 0 0.2 0 0 0</pose>
+      <pose>5 0 0.75 0 0 0</pose>
       <link name="link">
         <collision name="collision">
           <geometry>
             <box>
-              <size>0.1 10 0.4</size>
+              <size>0.1 10 1.5</size>
             </box>
           </geometry>
         </collision>
         <visual name="visual">
           <geometry>
             <box>
-              <size>0.1 10 0.4</size>
+              <size>0.1 10 1.5</size>
             </box>
           </geometry>
           <material>
@@ -86,19 +86,19 @@
 
     <model name="wall_west">
       <static>true</static>
-      <pose>-5 0 0.2 0 0 0</pose>
+      <pose>-5 0 0.75 0 0 0</pose>
       <link name="link">
         <collision name="collision">
           <geometry>
             <box>
-              <size>0.1 10 0.4</size>
+              <size>0.1 10 1.5</size>
             </box>
           </geometry>
         </collision>
         <visual name="visual">
           <geometry>
             <box>
-              <size>0.1 10 0.4</size>
+              <size>0.1 10 1.5</size>
             </box>
           </geometry>
           <material>
@@ -112,19 +112,19 @@
     <!-- Interior obstacles -->
     <model name="box_1">
       <static>true</static>
-      <pose>1.5 0 0.2 0 0 0</pose>
+      <pose>1.5 0 0.75 0 0 0</pose>
       <link name="link">
         <collision name="collision">
           <geometry>
             <box>
-              <size>0.6 0.6 0.4</size>
+              <size>0.6 0.6 1.5</size>
             </box>
           </geometry>
         </collision>
         <visual name="visual">
           <geometry>
             <box>
-              <size>0.6 0.6 0.4</size>
+              <size>0.6 0.6 1.5</size>
             </box>
           </geometry>
         </visual>
@@ -133,19 +133,19 @@
 
     <model name="box_2">
       <static>true</static>
-      <pose>-1 1.5 0.2 0 0 0</pose>
+      <pose>-1 1.5 0.75 0 0 0</pose>
       <link name="link">
         <collision name="collision">
           <geometry>
             <box>
-              <size>0.8 0.4 0.4</size>
+              <size>0.8 0.4 1.5</size>
             </box>
           </geometry>
         </collision>
         <visual name="visual">
           <geometry>
             <box>
-              <size>0.8 0.4 0.4</size>
+              <size>0.8 0.4 1.5</size>
             </box>
           </geometry>
         </visual>
@@ -154,19 +154,19 @@
 
     <model name="box_3">
       <static>true</static>
-      <pose>-2 -1.5 0.2 0 0 0</pose>
+      <pose>-2 -1.5 0.75 0 0 0</pose>
       <link name="link">
         <collision name="collision">
           <geometry>
             <box>
-              <size>0.5 1.2 0.4</size>
+              <size>0.5 1.2 1.5</size>
             </box>
           </geometry>
         </collision>
         <visual name="visual">
           <geometry>
             <box>
-              <size>0.5 1.2 0.4</size>
+              <size>0.5 1.2 1.5</size>
             </box>
           </geometry>
         </visual>
@@ -175,13 +175,13 @@
 
     <model name="cylinder_1">
       <static>true</static>
-      <pose>0 -2.5 0.2 0 0 0</pose>
+      <pose>0 -2.5 0.75 0 0 0</pose>
       <link name="link">
         <collision name="collision">
           <geometry>
             <cylinder>
               <radius>0.3</radius>
-              <length>0.4</length>
+              <length>1.5</length>
             </cylinder>
           </geometry>
         </collision>
@@ -189,7 +189,7 @@
           <geometry>
             <cylinder>
               <radius>0.3</radius>
-              <length>0.4</length>
+              <length>1.5</length>
             </cylinder>
           </geometry>
         </visual>
@@ -199,19 +199,19 @@
     <!-- Narrow passage (gap ~0.8m) -->
     <model name="lane_left">
       <static>true</static>
-      <pose>2.5 0 0.2 0 0 0</pose>
+      <pose>2.5 0 0.75 0 0 0</pose>
       <link name="link">
         <collision name="collision">
           <geometry>
             <box>
-              <size>0.3 4.0 0.4</size>
+              <size>0.3 4.0 1.5</size>
             </box>
           </geometry>
         </collision>
         <visual name="visual">
           <geometry>
             <box>
-              <size>0.3 4.0 0.4</size>
+              <size>0.3 4.0 1.5</size>
             </box>
           </geometry>
         </visual>
@@ -220,19 +220,19 @@
 
     <model name="lane_right">
       <static>true</static>
-      <pose>3.6 0 0.2 0 0 0</pose>
+      <pose>3.6 0 0.75 0 0 0</pose>
       <link name="link">
         <collision name="collision">
           <geometry>
             <box>
-              <size>0.3 4.0 0.4</size>
+              <size>0.3 4.0 1.5</size>
             </box>
           </geometry>
         </collision>
         <visual name="visual">
           <geometry>
             <box>
-              <size>0.3 4.0 0.4</size>
+              <size>0.3 4.0 1.5</size>
             </box>
           </geometry>
         </visual>
