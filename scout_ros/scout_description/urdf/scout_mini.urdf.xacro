@@ -19,6 +19,16 @@
     <xacro:property name="wheel_length" value="0.8e-01" />
     <xacro:property name="wheel_radius" value="1.600e-01" />
 
+    <xacro:property name="frame_length" value="0.35" />
+    <xacro:property name="frame_width" value="0.27" />
+    <xacro:property name="frame_height" value="0.14" />
+    <xacro:property name="frame_profile" value="0.04" />
+    <xacro:property name="frame_z_offset" value="-0.05" />
+
+    <material name="aluminum">
+        <color rgba="0.7 0.7 0.7 1" />
+    </material>
+
     <link name="base_footprint">
     </link>
 
@@ -87,69 +97,81 @@
     <xacro:include filename="$(arg urdf_extras)" />
 
     <xacro:include filename="$(find scout_description)/urdf/scout_mini.gazebo" />
-    
-    <!-- 2D激光雷达(RPLIDAR)关节 -->
-    <!-- z=0.07m: 激光雷达安装在车体顶部，高于车体最高点 -->
-    <joint name="rplidar_joint" type="fixed">
-        <origin xyz="0.0 0 0.08" rpy="0 0 0"/>
-        <parent link="base_link"/>
-        <child link="laser_link"/>
+    <xacro:include filename="$(find sick_safetyscanners_description)/urdf/nanoscan3.urdf.xacro" />
+
+    <!-- Aluminum frame (40x40) -->
+    <joint name="frame_joint" type="fixed">
+        <origin xyz="0 0 ${base_z_size/2 + frame_z_offset}" rpy="0 0 0" />
+        <parent link="base_link" />
+        <child link="frame_link" />
     </joint>
 
-    <!-- 2D激光雷达链接 -->
-    <link name="laser_link">
-        <collision>
-            <origin xyz="0 0 0" rpy="0 0 0"/>
-            <geometry>
-                <cylinder length="0.03" radius="0.035"/>
-            </geometry>
-        </collision>
+    <link name="frame_link">
+        <!-- Vertical posts -->
         <visual>
-            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <origin xyz="${frame_length/2 - frame_profile/2} ${frame_width/2 - frame_profile/2} ${frame_height/2}" rpy="0 0 0" />
             <geometry>
-                <cylinder length="0.03" radius="0.035"/>
+                <box size="${frame_profile} ${frame_profile} ${frame_height}" />
             </geometry>
-            <material name="black">
-                <color rgba="0 0 0 1"/>
-            </material>
+            <material name="aluminum" />
         </visual>
-        <inertial>
-            <mass value="0.1" />
-            <origin xyz="0 0 0" rpy="0 0 0"/>
-            <inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.0001" iyz="0" izz="0.0001" />
-        </inertial>
-    </link>
+        <visual>
+            <origin xyz="${frame_length/2 - frame_profile/2} ${-(frame_width/2 - frame_profile/2)} ${frame_height/2}" rpy="0 0 0" />
+            <geometry>
+                <box size="${frame_profile} ${frame_profile} ${frame_height}" />
+            </geometry>
+            <material name="aluminum" />
+        </visual>
+        <visual>
+            <origin xyz="${-(frame_length/2 - frame_profile/2)} ${frame_width/2 - frame_profile/2} ${frame_height/2}" rpy="0 0 0" />
+            <geometry>
+                <box size="${frame_profile} ${frame_profile} ${frame_height}" />
+            </geometry>
+            <material name="aluminum" />
+        </visual>
+        <visual>
+            <origin xyz="${-(frame_length/2 - frame_profile/2)} ${-(frame_width/2 - frame_profile/2)} ${frame_height/2}" rpy="0 0 0" />
+            <geometry>
+                <box size="${frame_profile} ${frame_profile} ${frame_height}" />
+            </geometry>
+            <material name="aluminum" />
+        </visual>
 
-    <gazebo reference="laser_link">
-        <sensor type="ray" name="rplidar">
-            <pose>0 0 0 0 0 0</pose>
-            <visualize>false</visualize> 
-            <update_rate>20</update_rate> 
-            <ray>
-                <scan>
-                    <horizontal>
-                        <samples>360</samples>
-                        <resolution>1</resolution>
-                        <min_angle>-3.1415926</min_angle>
-                        <max_angle>3.1415926</max_angle>
-                    </horizontal>
-                </scan>
-                <range>
-                    <min>0.15</min>
-                    <max>12.0</max>
-                    <resolution>0.01</resolution>
-                </range>
-                <noise>
-                    <type>gaussian</type>
-                    <mean>0.0</mean>
-                    <stddev>0.01</stddev> 
-                </noise>
-            </ray>
-            <plugin name="gazebo_ros_head_rplidar_controller" filename="libgazebo_ros_laser.so">
-                <topicName>/scan</topicName> 
-                <frameName>laser_link</frameName>
-            </plugin>
-        </sensor>
-    </gazebo>
+        <!-- Top perimeter (4 bars) -->
+        <visual>
+            <origin xyz="0 ${frame_width/2 - frame_profile/2} ${frame_height - frame_profile/2}" rpy="0 0 0" />
+            <geometry>
+                <box size="${frame_length - 2*frame_profile} ${frame_profile} ${frame_profile}" />
+            </geometry>
+            <material name="aluminum" />
+        </visual>
+        <visual>
+            <origin xyz="0 ${-(frame_width/2 - frame_profile/2)} ${frame_height - frame_profile/2}" rpy="0 0 0" />
+            <geometry>
+                <box size="${frame_length - 2*frame_profile} ${frame_profile} ${frame_profile}" />
+            </geometry>
+            <material name="aluminum" />
+        </visual>
+        <visual>
+            <origin xyz="${frame_length/2 - frame_profile/2} 0 ${frame_height - frame_profile/2}" rpy="0 0 0" />
+            <geometry>
+                <box size="${frame_profile} ${frame_width - 2*frame_profile} ${frame_profile}" />
+            </geometry>
+            <material name="aluminum" />
+        </visual>
+        <visual>
+            <origin xyz="${-(frame_length/2 - frame_profile/2)} 0 ${frame_height - frame_profile/2}" rpy="0 0 0" />
+            <geometry>
+                <box size="${frame_profile} ${frame_width - 2*frame_profile} ${frame_profile}" />
+            </geometry>
+            <material name="aluminum" />
+        </visual>
+    </link>
+    
+    <!-- NanoScan3 2D激光雷达 -->
+    <xacro:nanoscan3 prefix="nano" parent_link="base_link" topic="/scan" robot_namespace="$(arg robot_namespace)">
+        <!-- 雷达位姿在这里调整 -->
+        <origin xyz="0.13 -0.045 ${base_z_size/2 + frame_height + frame_z_offset}" rpy="0 0 1.57079632679"/>
+    </xacro:nanoscan3>
 
 </robot>

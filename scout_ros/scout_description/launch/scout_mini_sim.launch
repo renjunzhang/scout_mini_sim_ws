@@ -1,5 +1,8 @@
 <launch>
 
+    <env name="GAZEBO_MODEL_PATH" value="$(find sick_safetyscanners_description):$(find sick_safetyscanners_description)/meshes:$(optenv GAZEBO_MODEL_PATH)" />
+    <env name="GAZEBO_RESOURCE_PATH" value="$(find sick_safetyscanners_description):$(find sick_safetyscanners_description)/meshes:$(optenv GAZEBO_RESOURCE_PATH)" />
+
     <include file="$(find scout_description)/launch/empty_world.launch">
         <arg name="paused" value="false"/>
         <arg name="use_sim_time" value="true"/>
